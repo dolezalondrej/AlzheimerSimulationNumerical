@@ -1,0 +1,2070 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*************************************************
+	         AnyLogic Project File 
+*************************************************	         
+-->
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="7.3.3.201605101829" AlpVersion="7.3.3">
+<Model>
+	<Id>1429732178867</Id>
+	<Name><![CDATA[populace]]></Name>
+	<EngineVersion>6</EngineVersion>
+	<JavaPackageName><![CDATA[populace]]></JavaPackageName>
+	<ModelTimeUnit><![CDATA[Year]]></ModelTimeUnit>
+	<ActiveObjectClasses>
+		<!--   =========   Active Object Class   ========  -->
+		<ActiveObjectClass>
+			<Id>1429732178872</Id>
+			<Name><![CDATA[Main]]></Name>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<PresentationTopGroupPersistent>true</PresentationTopGroupPersistent>
+			<IconTopGroupPersistent>true</IconTopGroupPersistent>
+			<Import><![CDATA[import java.lang.Math;]]></Import>
+			<StartupCode><![CDATA[loadLifetable();
+
+numerical();
+
+  ]]></StartupCode>
+			<Generic>false</Generic>
+			<GenericParameter>
+				<Id>1429732178871</Id>
+				<Name><![CDATA[1429732178871]]></Name>
+				<GenericParameterValue Class="CodeValue">
+					<Code><![CDATA[T extends Agent]]></Code>
+				</GenericParameterValue>
+				<GenericParameterLabel><![CDATA[Generic parameter:]]></GenericParameterLabel>
+			</GenericParameter>
+			<FlowChartsUsage>ENTITY</FlowChartsUsage>
+			<SamplesToKeep>100</SamplesToKeep>
+			<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>
+			<ElementsLimitValue>100</ElementsLimitValue>
+			<MakeDefaultViewArea>true</MakeDefaultViewArea>
+			<SceneGridColor/>
+			<SceneBackgroundColor/>
+			<AgentProperties>
+	 			<SpaceType>CONTINUOUS</SpaceType>			
+				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
+				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
+				<RotateAnimationVertically>false</RotateAnimationVertically>
+				<VelocityCode Class="CodeUnitValue">
+					<Code><![CDATA[10]]></Code>
+					<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+				</VelocityCode>
+			</AgentProperties>
+			<EnvironmentProperties>
+					<EnableSteps>true</EnableSteps>
+					<StepDurationCode Class="CodeUnitValue">
+						<Code><![CDATA[1.0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</StepDurationCode>
+					<SpaceType>CONTINUOUS</SpaceType>
+					<WidthCode><![CDATA[500]]></WidthCode>
+					<HeightCode><![CDATA[500]]></HeightCode>
+					<ZHeightCode><![CDATA[0]]></ZHeightCode>
+					<ColumnsCountCode><![CDATA[1000]]></ColumnsCountCode>
+					<RowsCountCode><![CDATA[1000]]></RowsCountCode>
+					<NeigborhoodType>MOORE</NeigborhoodType>
+					<LayoutType>USER_DEF</LayoutType>
+					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
+					<NetworkType>USER_DEF</NetworkType>
+					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
+					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
+					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
+					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
+					<MCode><![CDATA[10]]></MCode>
+			</EnvironmentProperties>
+			<DatasetsCreationProperties>
+				<AutoCreate>true</AutoCreate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1429776000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+			</DatasetsCreationProperties>
+			<ScaleRuler>
+				<Id>1429732178869</Id>
+				<Name><![CDATA[scale]]></Name>
+				<X>0</X><Y>-150</Y>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>false</PresentationFlag>
+				<ShowLabel>false</ShowLabel>
+				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+				<Length>100</Length>
+				<Rotation>0</Rotation>
+				<ScaleType>BASED_ON_LENGTH</ScaleType>
+				<ModelLength>10</ModelLength>
+				<LengthUnits>METER</LengthUnits>
+				<Scale>10</Scale>
+				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
+			</ScaleRuler>
+			<ConnectionsId>1429732178868</ConnectionsId>
+			<Variables>
+				<Variable Class="CollectionVariable">
+					<Id>1430134687445</Id>
+					<Name><![CDATA[initialPopulation]]></Name>
+					<X>1020</X><Y>710</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1430134822074</Id>
+					<Name><![CDATA[a]]></Name>
+					<X>1020</X><Y>820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1430134823363</Id>
+					<Name><![CDATA[b]]></Name>
+					<X>1020</X><Y>850</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1430134841011</Id>
+					<Name><![CDATA[lifetableBirth]]></Name>
+					<X>1150</X><Y>710</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1430136655782</Id>
+					<Name><![CDATA[ageStructure]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1150</X><Y>740</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1430302185833</Id>
+					<Name><![CDATA[qAD]]></Name>
+					<X>1020</X><Y>790</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1430767665564</Id>
+					<Name><![CDATA[q]]></Name>
+					<X>1110</X><Y>850</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1435752649609</Id>
+					<Name><![CDATA[r]]></Name>
+					<X>1110</X><Y>820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1436170820515</Id>
+					<Name><![CDATA[rN0]]></Name>
+					<X>1170</X><Y>850</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1436170831758</Id>
+					<Name><![CDATA[rN]]></Name>
+					<X>1170</X><Y>820</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[java.util.ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+			</Variables>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1429764651959</Id>
+					<Name><![CDATA[setInitialPopulation]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1130</X><Y>1070</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[/*for(int i = 0; i < initialPop.size()-1; i++){
+	for(int j=0; j< initialPop.get(i);j++){
+		add_person(i,-1);
+	}
+}*/
+
+
+								]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1430134687461</Id>
+					<Name><![CDATA[loadLifetable]]></Name>
+					<X>720</X><Y>970</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[//qx=a/(x+b)	
+
+for(int i = 1;i<=85;i++){
+	a.add(xlsLifetable.getCellNumericValue(1,i,4));
+	b.add(xlsLifetable.getCellNumericValue(1,i,5));
+}
+for(int i = 1;i<=101;i++){
+	initialPopulation.add(xlsLifetable.getCellNumericValue(1,i,2));
+}
+for(int i = 1;i<=69;i++){
+	lifetableBirth.add(xlsLifetable.getCellNumericValue(1,i,6));
+}
+
+
+for(int i = 0;i<65;i++){
+	qAD.add(0d);
+}
+for(int i = 66;i<=101;i++){
+	qAD.add(xlsLifetable.getCellNumericValue(1,i,3));
+}
+
+for(int i = 0;i<84;i++){
+	q.add(0d);
+}
+for(int i = 85;i<=101;i++){
+	q.add(xlsLifetable.getCellNumericValue(1,i,7));
+}
+for(int i = 1;i<=101;i++){
+	r.add(xlsLifetable.getCellNumericValue(1,i,11));
+}
+for(int i = 1;i<=101;i++){
+	rN0.add(xlsLifetable.getCellNumericValue(1,i,12));
+}
+for(int i = 1;i<=101;i++){
+	rN.add(xlsLifetable.getCellNumericValue(1,i,13));
+}
+
+
+
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1430140369001</Id>
+					<Name><![CDATA[getNewPeople]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1040</X><Y>1070</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[total]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
+					<Body><![CDATA[double babies = 0;
+if(year <= 7) 				babies = total * lifetableBirth.get(0);
+if(year > 7 && year <= 17)  babies = total * lifetableBirth.get(1);
+if(year > 17 && year <= 27) babies = total * lifetableBirth.get(2);
+if(year > 27 && year <= 37) babies = total * lifetableBirth.get(3);
+if(year > 37 && year <= 47) babies = total * lifetableBirth.get(4);
+if(year > 47 && year <= 57) babies = total * lifetableBirth.get(5);
+if(year > 57 && year <= 67) babies = total * lifetableBirth.get(6);
+if(year > 67) 				babies = total * lifetableBirth.get(7);
+return babies;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1430301637841</Id>
+					<Name><![CDATA[old]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1040</X><Y>1100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[loadLifetable();
+List<Double> pop = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double deathP = 0;
+int age = 0;
+
+//počáteční nastavení populace
+traceln("-----------0-----------");
+for(int i = 0; i < initialPop.size(); i++){	
+	pop.add((double)initialPop.get(i));
+	alz.add(0d);
+	traceln(i+":"+pop.get(i)+" alz:"+alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+traceln("###");
+traceln("total_"+totalPop);	
+dataset.add(0, totalPop);
+
+
+
+//cyklus simulující roky
+for(int j = 0; j < 70; j++){
+	traceln();
+	traceln("-----------"+(j+1)+"-----------");
+	
+	//cyklus který se stará o úmrtí a posun kohrt
+	for(int i = initialPop.size()-2; i > -1; i--){
+			if(i<65)pop.set(i+1, (pop.get(i)*(1-(a.get(i)/(j+b.get(i))))));
+			else {
+				//traceln(i+"_"+round(alz.get(i - 65))+"_"+pop.get(i)+"_"+uniform(0.0002941525*pow(E, 0.1313365738*i),0.0018502399*pow(E, 0.1109035489*i))/100);
+				if(i!=85)age=i;
+				else age=uniform(85,90);
+					
+				alzhaimer = pop.get(i)*(uniform(0.0002941525*pow(E, 0.1313365738*age),0.0018502399*pow(E, 0.1109035489*age))/100);
+					
+				deathP = a.get(age)/(j+b.get(age));
+							 
+				if(i!=85)alz.set(i+1, alz.get(i) + (alzhaimer * (1-deathP)));
+				else alz.set(i, alz.get(i) + (alzhaimer * (1-deathP)));	
+				
+				deathP = a.get(i)/(j+b.get(i));
+				pop.set(i+1, (pop.get(i) - alzhaimer) * (1-deathP));
+				traceln((i-65)+"_"+alzhaimer);
+
+				}
+	}
+	pop.set(0, 0d);
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum();
+	pop.set(0, ((totalPop*lifetableBirth.get(j))*1.015));
+	//traceln("rozdíl: "+ (int)(getNewPeople(totalPop) - smrt));
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum();
+	
+
+	
+	//výpis do console
+	/*for(int i = 0; i < initialPop.size(); i++){
+		traceln(i+"_"+pop.get(i));
+	}
+	traceln("###");
+	traceln("total_"+totalPop);	*/
+	
+	//graf
+	datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum());
+	dataset.add(j+1, totalPop);
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1430765767546</Id>
+					<Name><![CDATA[old3]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1040</X><Y>1130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[loadLifetable();
+List<Double> pop = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double deathP = 0;
+
+double alzOld = 0;
+double popOld = 0;
+
+
+
+//počáteční nastavení populace
+traceln("-----------0-----------");
+for(int i = 0; i < initialPop.size()-1; i++){
+	pop.add((double)initialPop.get(i));
+    alz.add(0d);
+    //traceln(i+":"+pop.get(i)+" alz:"+alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+//cyklus simulující roky
+for(int j = 0; j <70; j++){
+	traceln("-----------"+(j+1)+"-----------");
+	//cyklus který se stará o úmrtí a posun kohrt
+
+	
+	for(int i = initialPop.size()-2; i > -1; i--){
+	
+			if(i<65)pop.set(i+1, (pop.get(i)*(1-(a.get(i)/(j+b.get(i))))));
+			else {	
+				if(i == 84){
+							popOld += pop.get(84);
+							alzOld += alz.get(84);
+							
+							alzhaimer = popOld*(uniform(0.0002941525*pow(E, 0.1313365738*uniform_discr(85, 90)),0.0018502399*pow(E, 0.1109035489*uniform_discr(85, 90)))/100);
+							popOld -= alzhaimer;
+							alzOld += alzhaimer;
+							
+							popOld *= 0.9;
+							alzOld *= 0.9;
+							
+							alzOld *= 1-(deathAlz.get(uniform_discr(85, 90)));
+							
+							continue;
+					}	
+		
+					alzhaimer = pop.get(i)*(uniform(0.0002941525*pow(E, 0.1313365738*i),0.0018502399*pow(E, 0.1109035489*i))/100);
+					deathP = a.get(i)/(j+b.get(i));	
+					
+					pop.set(i, pop.get(i)-alzhaimer);
+					alz.set(i, alz.get(i)+alzhaimer);
+					
+					pop.set(i, (pop.get(i)*(1-(a.get(i)/(j+b.get(i))))));				
+					alz.set(i, (alz.get(i)*(1-deathAlz.get(i))));	
+					
+					pop.set(i+1, pop.get(i));
+					alz.set(i+1, alz.get(i));
+							
+			}
+			
+			
+	}
+	alz.set(65, 0d);
+	
+	
+	pop.set(0, 0d);
+	//totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum() + popOld + alzOld;
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum();
+	pop.set(0, ((totalPop*lifetableBirth.get(j))*1.015));
+	//traceln("rozdíl: "+ (int)(getNewPeople(totalPop) - smrt));
+	//totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum() + popOld + alzOld;
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum();
+	
+	
+	for(int i = 0; i<85;i++) traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	traceln("old:"+round(popOld + alzOld)+" ("+round(alzOld)+")");
+	//graf
+	//datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum()+ alzOld);
+	datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum());
+	dataset.add(j+1, totalPop);
+	
+	old1.add(j+1, (popOld+alzOld));
+	old2.add(j+1, alzOld);
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1431679616768</Id>
+					<Name><![CDATA[old4]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1040</X><Y>1160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[loadLifetable();
+List<Double> pop = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double deathP = 0;
+
+//počáteční nastavení populace
+traceln("-----------0-----------");
+for(int i = 0; i < initialPop.size(); i++){
+	pop.add((double)initialPop.get(i));
+	//traceln(pop.get(i));
+    alz.add(0d);
+    //traceln(i+":"+pop.get(i)+" alz:"+alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+double newBorn = 0;
+double popD = 0;
+
+//cyklus simulující roky
+for(int j = 0; j <70; j++){
+	newBorn = (pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum())*lifetableBirth.get(j);
+	
+	//traceln("-----------"+(j+1)+"-----------");
+	
+	//cyklus který se stará o úmrtí a posun kohrt
+	for(int i = initialPop.size()-2; i > -1; i--){
+		if(i<65){pop.set(i+1, (pop.get(i)*(1-(a.get(i)/(j+b.get(i))))));
+		//traceln(i+"_"+(a.get(i)/(j+b.get(i)))+"_"+a.get(i)+"_"+b.get(i));
+		}
+		else {
+				//alzhaimer = pop.get(i)*(uniform(0.0002941525*pow(E, 0.1313365738*i),0.0018502399*pow(E, 0.1109035489*i))/100);
+				alzhaimer = pop.get(i)*((0.0007892530*pow(E, 0.1172137171*i))/100);
+				deathP = (i<85)? a.get(i)/(j+b.get(i)) : q.get(i);
+				
+				//onemocnění	
+				pop.set(i, pop.get(i)-alzhaimer);
+				alz.set(i, alz.get(i)+alzhaimer);
+				
+				//úmrtí	výpočet
+				popD = (pop.get(i)*(deathP)) - (alz.get(i)*(qAlz.get(i)));
+				traceln(pop.get(i)*(deathP)+" - "+(alz.get(i)*(qAlz.get(i))));
+				
+				//úmrtí	
+				pop.set(i, pop.get(i) - popD);				
+				alz.set(i, (alz.get(i)*(1-qAlz.get(i))));	
+					
+				//posun	
+				pop.set(i+1, pop.get(i));
+				alz.set(i+1, alz.get(i));	
+				
+			 }	
+			 
+		//traceln(i+"_"+pop.get(i)+"_"+alz.get(i));	 	
+	}
+	alz.set(65, 0d);
+	pop.set(0, newBorn);
+	
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum();
+	
+	//int i = j+20;
+	//traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	//for(int i = 0; i<pop.size();i++) traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	
+	//graf
+	//datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum()+ alzOld);
+	datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum());
+	dataset.add(j+1, totalPop);
+	
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1431717721379</Id>
+					<Name><![CDATA[old5]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1130</X><Y>1100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[
+List<Double> pop = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double deathP = 0;
+
+//počáteční nastavení populace
+traceln("-----------0-----------");
+for(int i = 0; i < initialPop.size(); i++){
+	pop.add((double)initialPop.get(i));
+	//traceln(pop.get(i));
+    alz.add(0d);
+    //traceln(i+":"+pop.get(i)+" alz:"+alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+double newBorn = 0;
+double popD = 0;
+double alzD = 0;
+
+//cyklus simulující roky
+for(int j = 0; j <70; j++){
+
+	newBorn = (pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum())*lifetableBirth.get(j);
+	
+	//traceln("-----------"+(j+1)+"-----------");
+	
+	//cyklus který se stará o úmrtí a posun kohrt
+	for(int i = initialPop.size()-2; i > -1; i--){
+		if(i<65){pop.set(i+1, (pop.get(i)*(1-(a.get(i)/(j+b.get(i))))));
+		//traceln(i+"_"+(a.get(i)/(j+b.get(i)))+"_"+a.get(i)+"_"+b.get(i));
+		}
+		else {
+				//alzhaimer = pop.get(i)*(uniform(0.0002941525*pow(E, 0.1313365738*i),0.0018502399*pow(E, 0.1109035489*i))/100);
+				alzhaimer = pop.get(i)*((0.0007892530*pow(E, 0.1172137171*i))/100);
+				
+				//onemocnění	
+				pop.set(i, pop.get(i)-alzhaimer);
+				alz.set(i, alz.get(i)+alzhaimer);		
+				
+				//úmrtí	výpočet
+				deathP = (i<85)? a.get(i)/(j+b.get(i)) : q.get(i);
+				
+				popD = pop.get(i) + alz.get(i);
+				popD *= deathP;
+				
+				alzD = alz.get(i) * qAlz.get(i);
+				
+				//if((popD - alzD) < 0){
+				//traceln(j +"_"+ i +"   popD: "+ popD +": "+ pop.get(i) +" ("+ (popD - alzD) +") ___"+ alz.get(i) +" ("+ alzD +") " );		
+				//}	
+				//traceln(popD +" - "+ alzD);			
+							
+				//úmrtí	
+				if((popD - alzD) < 0)pop.set(i, pop.get(i));
+				else	             pop.set(i, pop.get(i) - (popD - alzD));	
+						
+				alz.set(i, alz.get(i) - alzD);	
+					
+				
+				
+				//posun	
+				pop.set(i+1, pop.get(i));
+				alz.set(i+1, alz.get(i));	
+				
+			 }	
+			 
+		traceln(i+"_"+pop.get(i)+"_"+alz.get(i));	 	
+	}
+	alz.set(65, 0d);
+	pop.set(0, newBorn);
+	
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum();
+	
+	//int i = j+20;
+	//traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	//for(int i = 0; i<pop.size();i++) traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	
+	//graf
+	//datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum()+ alzOld);
+	datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum());
+	dataset.add(j+1, totalPop);
+	
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1431864022897</Id>
+					<Name><![CDATA[old6]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1130</X><Y>1130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[//sx = (prevalecnex * celá populacex )-(přeživší nemocní)
+// / zdraví x 
+
+List<Double> pop = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double deathP = 0;
+
+//počáteční nastavení populace
+//traceln("-----------0-----------");
+for(int i = 0; i < initialPop.size(); i++){
+	pop.add((double)initialPop.get(i));
+	//traceln(pop.get(i));
+    alz.add(0d);
+    //traceln(i+":"+pop.get(i)+" alz:"+alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+double newBorn = 0;
+double popD = 0;
+double alzD = 0;
+
+//cyklus simulující roky
+for(int j = 0; j <30; j++){
+
+	newBorn = (pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum())*lifetableBirth.get(j)*slider.getValue();
+	
+	//traceln("-----------"+(j+1)+"-----------");
+	
+	//cyklus který se stará o úmrtí a posun kohrt
+	for(int i = initialPop.size()-2; i > -1; i--){
+		if(i<65){pop.set(i+1, (pop.get(i)*(1-(a.get(i)/(j+b.get(i))))));
+		//traceln(i+"_"+(a.get(i)/(j+b.get(i)))+"_"+a.get(i)+"_"+b.get(i));
+		}
+		else {
+				//alzhaimer = pop.get(i)*(uniform(0.0002941525*pow(E, 0.1313365738*i),0.0018502399*pow(E, 0.1109035489*i))/100);
+				alzhaimer = (pop.get(i) + alz.get(i))*((0.0007892530*pow(E, 0.1172137171*i))/100);
+				
+				//onemocnění	
+				pop.set(i, (pop.get(i) + alz.get(i))-alzhaimer);
+				alz.set(i, alzhaimer);	
+				
+				if(i == 89)traceln("věk "+ i +": zdrav:"+ round(pop.get(i))+" "+round(pop.get(i)/(pop.get(i) + alz.get(i))*100)+"%  alz:"+ round(alz.get(i))+" "+round(alz.get(i)/(pop.get(i) + alz.get(i))*100)+"%");	
+				
+				//úmrtí	výpočet
+				deathP = (i<85)? a.get(i)/(j+b.get(i)) : q.get(i);
+				
+				popD = pop.get(i) + alz.get(i);
+				popD *= deathP;
+				
+				alzD = alz.get(i) * qAlz.get(i);
+				
+				//if((popD - alzD) < 0){
+				//traceln(j +"_"+ i +"   popD: "+ popD +": "+ pop.get(i) +" ("+ (popD - alzD) +") ___"+ alz.get(i) +" ("+ alzD +") " );		
+				//}	
+				//traceln(popD +" - "+ alzD);			
+							
+				//úmrtí	
+				if((popD - alzD) < 0)pop.set(i, pop.get(i));
+				else	             pop.set(i, pop.get(i) - (popD - alzD));	
+						
+				alz.set(i, alz.get(i) - alzD);	
+					
+				//traceln(i +": pop:"+ round(pop.get(i))+" "+round(pop.get(i)/(pop.get(i) + alz.get(i))*100)+"%  alz:"+ round(alz.get(i))+" "+round(alz.get(i)/(pop.get(i) + alz.get(i))*100)+"%");
+				
+				//posun	
+				pop.set(i+1, pop.get(i));
+				alz.set(i+1, alz.get(i));	
+				
+			 }	
+			 
+		//traceln(i+"_"+pop.get(i)+"_"+alz.get(i));	 	
+	}
+	alz.set(65, 0d);
+	pop.set(0, newBorn);
+	
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum();
+	
+	//int i = j+20;
+	//traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	//for(int i = 0; i<pop.size();i++) traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	
+	//graf
+	//datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum()+ alzOld);
+	datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum());
+	dataset.add(j+1, totalPop);
+	
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1431935564723</Id>
+					<Name><![CDATA[slide]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1210</X><Y>1070</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[
+List<Double> pop = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double deathP = 0;
+int age = 0;
+
+//počáteční nastavení populace
+for(int i = 0; i < initialPop.size(); i++){	
+	pop.add((double)initialPop.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+double newBorn = 0;
+
+//cyklus simulující roky
+for(int j = 0; j < 70; j++){
+	
+	//výpočet nově narozených
+	newBorn = pop.stream().mapToDouble(Double::doubleValue).sum()*lifetableBirth.get(j)*slider.getValue();
+	
+	//cyklus který se stará o úmrtí a posun kohrt
+	for(int i = initialPop.size()-2; i > -1; i--){
+			//mladší než 65
+			if(i<65)pop.set(i+1, (pop.get(i)*(1-(a.get(i)/(j+b.get(i))))));
+			//starší
+			else {		
+					deathP = (i<85)? a.get(i)/(j+b.get(i)) : q.get(i);
+					pop.set(i+1, pop.get(i) * (1-deathP));
+				}
+	}
+	
+	//přidání nově narozených
+	pop.set(0, newBorn);
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+	
+
+	
+	//výpis do console
+	/*for(int i = 0; i < initialPop.size(); i++){
+		traceln(i+"_"+pop.get(i));
+	}
+	traceln("###");
+	traceln("total_"+totalPop);	*/
+	
+	//graf
+	dataset.add(j+1, totalPop);
+}
+
+
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1435753427613</Id>
+					<Name><![CDATA[old7]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1130</X><Y>1160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[//sx = (prevalecnex * celá populacex )-(přeživší nemocní)
+// / zdraví x 
+
+List<Double> pop = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double deathP = 0;
+
+//počáteční nastavení populace
+//traceln("-----------0-----------");
+for(int i = 0; i < initialPop.size(); i++){
+	pop.add((double)initialPop.get(i));
+	//traceln(pop.get(i));
+    alz.add(0d);
+    //traceln(i+":"+pop.get(i)+" alz:"+alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+double newBorn = 0;
+double popD = 0;
+double alzD = 0;
+
+//cyklus simulující roky
+for(int j = 0; j <30; j++){
+
+	newBorn = (pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum())*lifetableBirth.get(j)*slider.getValue();
+	
+	//traceln("-----------"+(j+1)+"-----------");
+	
+	//cyklus který se stará o úmrtí a posun kohrt
+	for(int i = initialPop.size()-2; i > -1; i--){
+		if(i<65){pop.set(i+1, (pop.get(i)*(1-(a.get(i)/(j+b.get(i))))));
+		//traceln(i+"_"+(a.get(i)/(j+b.get(i)))+"_"+a.get(i)+"_"+b.get(i));
+		}
+		else {
+				//alzhaimer = pop.get(i)*(uniform(0.0002941525*pow(E, 0.1313365738*i),0.0018502399*pow(E, 0.1109035489*i))/100);
+				alzhaimer = (pop.get(i) + alz.get(i))*((0.0007892530*pow(E, 0.1172137171*i))/100);
+				
+				//onemocnění	
+				pop.set(i, (pop.get(i) + alz.get(i))-alzhaimer);
+				alz.set(i, alzhaimer);	
+				
+				if(i == 89)traceln("věk "+ i +": zdrav:"+ round(pop.get(i))+" "+round(pop.get(i)/(pop.get(i) + alz.get(i))*100)+"%  alz:"+ round(alz.get(i))+" "+round(alz.get(i)/(pop.get(i) + alz.get(i))*100)+"%");	
+				
+				//úmrtí	výpočet
+				deathP = (i<85)? a.get(i)/(j+b.get(i)) : q.get(i);
+				
+				popD = pop.get(i) + alz.get(i);
+				popD *= deathP;
+				
+				alzD = alz.get(i) * qAlz.get(i);
+				
+				//if((popD - alzD) < 0){
+				//traceln(j +"_"+ i +"   popD: "+ popD +": "+ pop.get(i) +" ("+ (popD - alzD) +") ___"+ alz.get(i) +" ("+ alzD +") " );		
+				//}	
+				//traceln(popD +" - "+ alzD);			
+							
+				//úmrtí	
+				if((popD - alzD) < 0)pop.set(i, pop.get(i));
+				else	             pop.set(i, pop.get(i) - (popD - alzD));	
+						
+				alz.set(i, alz.get(i) - alzD);	
+					
+				//traceln(i +": pop:"+ round(pop.get(i))+" "+round(pop.get(i)/(pop.get(i) + alz.get(i))*100)+"%  alz:"+ round(alz.get(i))+" "+round(alz.get(i)/(pop.get(i) + alz.get(i))*100)+"%");
+				
+				//posun	
+				pop.set(i+1, pop.get(i));
+				alz.set(i+1, alz.get(i));	
+				
+			 }	
+			 
+		//traceln(i+"_"+pop.get(i)+"_"+alz.get(i));	 	
+	}
+	alz.set(65, 0d);
+	pop.set(0, newBorn);
+	
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum() + alz.stream().mapToDouble(Double::doubleValue).sum();
+	
+	//int i = j+20;
+	//traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	//for(int i = 0; i<pop.size();i++) traceln(i+":"+round(pop.get(i)+alz.get(i))+" ("+round(alz.get(i))+")");
+	
+	//graf
+	//datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum()+ alzOld);
+	datasetAlz.add(j+1, alz.stream().mapToDouble(Double::doubleValue).sum());
+	dataset.add(j+1, totalPop);
+	
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1435761863525</Id>
+					<Name><![CDATA[numerical]]></Name>
+					<X>1120</X><Y>1000</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[
+List<Double> population = new ArrayList<Double>();
+List<Double> populationNonAD = new ArrayList<Double>();
+List<Double> populationAD = new ArrayList<Double>();
+
+
+//Set initial population
+for(int i = 0; i < initialPopulation.size(); i++){
+	
+	//total population
+	population.add((double)initialPopulation.get(i));
+	
+	//population with AD
+	if(i>64)populationAD.add(initialPopulation.get(i) * rN0.get(i));
+	else populationAD.add(0d);
+	
+	//population without AD
+	populationNonAD.add(population.get(i) - populationAD.get(i));
+	}
+
+datasetPopulation.add(0, population.stream().mapToDouble(Double::doubleValue).sum());
+
+//simulation start
+for(int j = 0; j <69; j++){
+	
+	//dying
+	for(int i = 0; i < 101; i++){
+			
+			double deathP = (i < 85) ? (a.get(i) / (j + b.get(i))) : q.get(i);
+
+            if (populationAD.get(i) > 0)
+                       { 
+                          deathP = (population.get(i) * deathP - (populationAD.get(i) * qAD.get(i))) / (population.get(i) - populationAD.get(i));
+                       }  
+            
+            populationNonAD.set(i, (populationNonAD.get(i)*(1 - deathP)));            
+
+			populationAD.set(i, (populationAD.get(i) - (populationAD.get(i) * qAD.get(i))));
+             
+            population.set(i, (populationAD.get(i) + populationNonAD.get(i)));
+          
+	}
+ 	
+ 	//aging
+	for(int i = 99; i > -1; i--){
+		population.set(i+1, population.get(i));
+		populationNonAD.set(i+1, populationNonAD.get(i));
+		populationAD.set(i+1, populationAD.get(i));	
+	}
+	
+	population.set(0, 0d);
+    populationNonAD.set(0, 0d);
+
+	//adding newborns
+    population.set(0, population.stream().mapToDouble(Double::doubleValue).sum()*lifetableBirth.get(j));
+    populationNonAD.set(0, population.get(0));
+    
+    //adding new AD
+    for(int i = 0; i < 101; i++){
+    				
+            double s = ((rN.get(i) * population.get(i)) - populationAD.get(i)) / (population.get(i) - populationAD.get(i));
+            double newAD = s * populationNonAD.get(i);
+           
+            populationAD.set(i, (populationAD.get(i) + newAD));
+            populationNonAD.set(i, (populationNonAD.get(i) - newAD));             
+	}
+
+
+	traceln((j)+"_"+(int)population.stream().mapToDouble(Double::doubleValue).sum()+"_"+(int)populationAD.stream().mapToDouble(Double::doubleValue).sum());
+    
+
+	//graf
+	datasetPopulation.add(j+1, population.stream().mapToDouble(Double::doubleValue).sum());
+	datasetAlz.add(j+1, (int)populationAD.stream().mapToDouble(Double::doubleValue).sum());
+}
+
+
+
+  ]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1435827913215</Id>
+					<Name><![CDATA[S2]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1210</X><Y>1100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[
+List<Double> pop = new ArrayList<Double>();
+List<Double> zdr = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double s = 0;
+double popDeath;
+
+double alzP = 0;
+double alzCount = 0;
+double alzDeath = 0;
+double alzOld = 0;
+int age = 0;
+double newBorn = 0;
+
+//počáteční nastavení populace
+for(int i = 0; i < initialPop.size(); i++){	
+	pop.add((double)initialPop.get(i));
+	//if(i>64)alz.add(initialPop.get(i) * r.get(i));
+	//else alz.add(0d);
+	alz.add(0d);
+	
+	zdr.add(pop.get(i) - alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+//výpis do console
+	for(int i = 0; i < initialPop.size(); i++){
+		//trace("_"+Math.round(pop.get(i)));
+	}
+	for(int i = 0; i < initialPop.size(); i++){
+		//trace("_"+Math.round(alz.get(i)));
+	}
+for(int j = 0; j < 101; j++){
+//traceln(q.get(j));
+}
+//cyklus simulující roky
+for(int j = 0; j < 1; j++){
+	
+	
+	newBorn = pop.stream().mapToDouble(Double::doubleValue).sum()*lifetableBirth.get(j);
+
+	for(int i = 99; i > -1; i--){
+		pop.set(i+1, pop.get(i));
+		zdr.set(i+1, zdr.get(i));
+		alz.set(i+1, alz.get(i));	
+	}
+	pop.set(0, newBorn);
+    zdr.set(0, newBorn);
+	
+	for(int i = 0; i < 101; i++){
+			
+			//trace("_"+Math.round(pop.get(i)));
+			traceln(Math.round((zdr.get(i)+alz.get(i)))+"_"+Math.round(pop.get(i)));
+			 s = ((r.get(i) * pop.get(i)) - alz.get(i)) / (pop.get(i) - alz.get(i));
+            alzCount = s * zdr.get(i);
+            alz.set(i, (alz.get(i) + alzCount));
+            zdr.set(i, (zdr.get(i) - alzCount));
+			
+
+			
+			double deathP = (i < 85) ? (a.get(i) / (j + b.get(i))) : q.get(i);
+			//traceln(i+"_"+deathP);
+            if (alz.get(i) > 0)
+                       {
+                          deathP = (pop.get(i) * deathP - (alz.get(i) * qAlz.get(i))) / (pop.get(i) - alz.get(i));
+                       }
+            pop.set(i, (pop.get(i)-(pop.get(i) * deathP)));            
+			
+			alzDeath = alz.get(i) * qAlz.get(i);
+			alz.set(i, (alz.get(i) - alzDeath));
+            
+            popDeath = zdr.get(i) * deathP;
+            zdr.set(i, (zdr.get(i) - popDeath));
+            
+            pop.set(i, (zdr.get(i)+alz.get(i)));
+   
+	}
+	
+	
+
+
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+	//traceln((j+1)+"_"+(int)pop.stream().mapToDouble(Double::doubleValue).sum()+"_"+(int)alz.stream().mapToDouble(Double::doubleValue).sum());
+    
+	
+	//výpis do console
+	for(int i = 0; i < initialPop.size(); i++){
+		//trace("_"+Math.round(pop.get(i)));
+	}
+	for(int i = 0; i < initialPop.size(); i++){
+	    //trace("_"+Math.round(alz.get(i)));
+	}
+traceln();
+	//graf
+	dataset.add(j+1, totalPop);
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+  ]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1435909108421</Id>
+					<Name><![CDATA[S1F1S1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1210</X><Y>1130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[
+List<Double> pop = new ArrayList<Double>();
+List<Double> zdr = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double s = 0;
+double popDeath;
+
+double alzP = 0;
+double alzCount = 0;
+double alzDeath = 0;
+double alzOld = 0;
+int age = 0;
+double newBorn = 0;
+
+//počáteční nastavení populace
+for(int i = 0; i < initialPop.size(); i++){	
+	pop.add((double)initialPop.get(i));
+	if(i>64)alz.add(initialPop.get(i) * r.get(i));
+	else alz.add(0d);
+	
+	zdr.add(pop.get(i) - alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+//výpis do console
+	for(int i = 0; i < initialPop.size(); i++){
+		//trace("_"+Math.round(pop.get(i)));
+	}
+	for(int i = 0; i < initialPop.size(); i++){
+		//trace("_"+Math.round(alz.get(i)));
+	}
+for(int j = 0; j < 101; j++){
+//traceln(q.get(j));
+}
+
+
+//cyklus simulující roky
+for(int j = 0; j < 69; j++){
+	
+	for(int i = 99; i > -1; i--){
+		pop.set(i+1, pop.get(i));
+		zdr.set(i+1, zdr.get(i));
+		alz.set(i+1, alz.get(i));	
+	}
+	pop.set(0, 0d);
+    zdr.set(0, 0d);
+	
+	
+	newBorn = pop.stream().mapToDouble(Double::doubleValue).sum()*lifetableBirth.get(j)/(1-lifetableBirth.get(j));
+	
+	pop.set(0, newBorn);
+    zdr.set(0, newBorn);
+   // trace(j+"_F");
+    for(int i = 0; i < 101; i++){
+    		//trace("_"+Math.round(pop.get(i)));
+    }
+    for(int i = 0; i < 101; i++){
+    		//trace("_"+Math.round(alz.get(i)));
+    }
+    //traceln();
+	//trace(j+"_S");
+	for(int i = 0; i < 101; i++){
+			
+
+			double deathP = (i < 85) ? (a.get(i) / (j + b.get(i))) : q.get(i);
+			//traceln(i+"_"+deathP);
+            if (alz.get(i) > 0)
+                       {
+                          deathP = (pop.get(i) * deathP - (alz.get(i) * qAlz.get(i))) / (pop.get(i) - alz.get(i));
+                       }
+            pop.set(i, (pop.get(i)-(pop.get(i) * deathP)));            
+			
+			alzDeath = alz.get(i) * qAlz.get(i);
+			alz.set(i, (alz.get(i) - alzDeath));
+            
+            popDeath = zdr.get(i) * deathP;
+            zdr.set(i, (zdr.get(i) - popDeath));
+            
+            pop.set(i, (zdr.get(i)+alz.get(i)));
+            
+           // trace("_"+Math.round(pop.get(i)));
+            
+
+	}
+	for(int i = 0; i < 101; i++){
+			//trace("_"+Math.round(alz.get(i)));
+				
+            s = ((r.get(i) * pop.get(i)) - alz.get(i)) / (pop.get(i) - alz.get(i));
+            alzCount = s * zdr.get(i);
+            alz.set(i, (alz.get(i) + alzCount));
+            zdr.set(i, (zdr.get(i) - alzCount));
+            
+            
+	}
+	
+	//traceln();
+
+
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+	//traceln((j+1)+"_"+(int)pop.stream().mapToDouble(Double::doubleValue).sum()+"_"+(int)alz.stream().mapToDouble(Double::doubleValue).sum());
+    
+	trace(j+"_T");
+	//výpis do console
+	for(int i = 0; i < initialPop.size(); i++){
+		if(j<70)trace("_"+Math.round(pop.get(i)));
+	}
+	for(int i = 0; i < initialPop.size(); i++){
+	   if(j<70) trace("_"+Math.round(alz.get(i)));
+	}
+	traceln();
+	//graf
+	dataset.add(j+1, totalPop);
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+  ]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1435909122911</Id>
+					<Name><![CDATA[S1F1S2]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>1210</X><Y>1160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[
+List<Double> pop = new ArrayList<Double>();
+List<Double> zdr = new ArrayList<Double>();
+List<Double> alz = new ArrayList<Double>();
+double totalPop = 0;
+double alzhaimer = 0;
+double s = 0;
+double popDeath;
+
+double alzP = 0;
+double alzCount = 0;
+double alzDeath = 0;
+double alzOld = 0;
+int age = 0;
+double newBorn = 0;
+
+//počáteční nastavení populace
+for(int i = 0; i < initialPop.size(); i++){	
+	pop.add((double)initialPop.get(i));
+	if(i>64)alz.add(initialPop.get(i) * r.get(i));
+	else alz.add(0d);
+	
+	zdr.add(pop.get(i) - alz.get(i));
+	}
+totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+dataset.add(0, totalPop);
+
+//výpis do console
+	for(int i = 0; i < initialPop.size(); i++){
+		//trace("_"+Math.round(pop.get(i)));
+	}
+	for(int i = 0; i < initialPop.size(); i++){
+		//trace("_"+Math.round(alz.get(i)));
+	}
+for(int j = 0; j < 101; j++){
+//traceln(q.get(j));
+}
+
+
+//cyklus simulující roky
+for(int j = 0; j < 69; j++){
+
+	for(int i = 99; i > -1; i--){
+		pop.set(i+1, pop.get(i));
+		zdr.set(i+1, zdr.get(i));
+		alz.set(i+1, alz.get(i));	
+	}
+	pop.set(0, 0d);
+    zdr.set(0, 0d);
+    
+    
+    //trace(j+"_F");
+    for(int i = 0; i < 101; i++){
+    		//if(j<70)trace("_"+Math.round(pop.get(i)));
+    }
+    for(int i = 0; i < 101; i++){
+    		//if(j<70) trace("_"+Math.round(alz.get(i)));
+    }
+    //traceln();
+	//trace(j+"_S");
+	for(int i = 0; i < 101; i++){
+			
+
+			double deathP = (i < 85) ? (a.get(i) / (j + b.get(i))) : q.get(i);
+			//trace(i+"_"+deathP);
+            if (alz.get(i) > 0)
+                       {
+                          deathP = (pop.get(i) * deathP - (alz.get(i) * qAlz.get(i))) / (pop.get(i) - alz.get(i));
+                       }
+            pop.set(i, (pop.get(i)-(pop.get(i) * deathP)));            
+			
+			alzDeath = alz.get(i) * qAlz.get(i);
+			alz.set(i, (alz.get(i) - alzDeath));
+            
+            popDeath = zdr.get(i) * deathP;
+            zdr.set(i, (zdr.get(i) - popDeath));
+            
+            pop.set(i, (zdr.get(i)+alz.get(i)));
+            
+           //trace("_"+Math.round(pop.get(i)));
+            
+
+	}
+	for(int i = 65; i < 101; i++){
+		    //trace("_"+Math.round(alz.get(i)));
+				
+            s = ((r.get(i) * pop.get(i)) - alz.get(i)) / (pop.get(i) - alz.get(i));
+            alzCount = s * zdr.get(i);
+            alz.set(i, (alz.get(i) + alzCount));
+            zdr.set(i, (zdr.get(i) - alzCount));
+            
+            
+	}
+	//traceln();
+	
+	newBorn = pop.stream().mapToDouble(Double::doubleValue).sum()*lifetableBirth.get(j)/(1-lifetableBirth.get(j));
+	
+	pop.set(0, newBorn);
+    zdr.set(0, newBorn);
+	
+	
+
+	totalPop = pop.stream().mapToDouble(Double::doubleValue).sum();
+	//traceln((j+1)+"_"+(int)pop.stream().mapToDouble(Double::doubleValue).sum()+"_"+(int)alz.stream().mapToDouble(Double::doubleValue).sum());
+    
+	trace(j+"_T");
+	//výpis do console
+	for(int i = 0; i < initialPop.size(); i++){
+		trace("_"+Math.round(pop.get(i)));
+	}
+	for(int i = 0; i < initialPop.size(); i++){
+	   trace("_"+Math.round(alz.get(i)));
+	}
+	traceln();
+	//graf
+	dataset.add(j+1, totalPop);
+}
+
+//nastavení pro agenty
+//setInitialPopulation();
+//dataset1.add(0, 11000);
+
+  ]]></Body>
+				</Function>
+			</Functions>
+			<AnalysisData>
+    			<DataSet>
+					<Id>1429734549987</Id>
+					<Name><![CDATA[datasetPopulation]]></Name>
+					<X>830</X><Y>840</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1429776000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>false</FreezeXAxis>
+					<SamplesToKeep>71</SamplesToKeep>
+				</DataSet>
+    			<DataSet>
+					<Id>1430157728907</Id>
+					<Name><![CDATA[datasetAlz]]></Name>
+					<X>720</X><Y>840</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1429776000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>false</FreezeXAxis>
+					<SamplesToKeep>71</SamplesToKeep>
+				</DataSet>
+			</AnalysisData>
+			<Connectivity>
+				<ExcelFile>
+					<Id>1430134687463</Id>
+					<Name><![CDATA[xlsLifetable]]></Name>
+					<X>720</X><Y>940</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<FileName><![CDATA[pop.xlsx]]></FileName>
+					<SaveInSnapshot>false</SaveInSnapshot>
+					<LoadOnStartup>true</LoadOnStartup>
+					<SaveOnDispose>false</SaveOnDispose>
+				</ExcelFile>
+			</Connectivity>
+			<AgentLinks>
+				<AgentLink>
+					<Id>1429732178868</Id>
+					<Name><![CDATA[connections]]></Name>
+					<X>50</X><Y>-50</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<HandleReceiveInConnections>false</HandleReceiveInConnections>
+					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
+					<AgentLinkBidirectional>true</AgentLinkBidirectional>
+					<MessageType><![CDATA[Object]]></MessageType>
+					<LineStyle>SOLID</LineStyle>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineZOrder>UNDER_AGENTS</LineZOrder>
+					<LineArrow>NONE</LineArrow>
+					<LineArrowPosition>END</LineArrowPosition>
+				</AgentLink>
+			</AgentLinks>
+
+
+			<Shapes>
+				<RoundedRectangle>
+					<Id>1448937523899</Id>
+					<Name><![CDATA[roundRectangle]]></Name>
+					<X>1000</X><Y>640</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>290</Width>
+					<Height>270</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-133658</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1448937615287</Id>
+					<Name><![CDATA[text3]]></Name>
+					<X>1020</X><Y>660</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Collections]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>18</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<RoundedRectangle>
+					<Id>1448937652407</Id>
+					<Name><![CDATA[roundRectangle1]]></Name>
+					<X>1000</X><Y>930</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>290</Width>
+					<Height>260</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-133658</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1448937683349</Id>
+					<Name><![CDATA[text5]]></Name>
+					<X>1020</X><Y>940</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Functions]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>18</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1448937698501</Id>
+					<Name><![CDATA[Textx]]></Name>
+					<X>1020</X><Y>1040</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Deprecated]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>18</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<RoundedRectangle>
+					<Id>1448937777296</Id>
+					<Name><![CDATA[roundRectangle2]]></Name>
+					<X>680</X><Y>890</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>290</Width>
+					<Height>120</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-133658</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1448937787363</Id>
+					<Name><![CDATA[text6]]></Name>
+					<X>710</X><Y>900</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Initialization]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>18</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<RoundedRectangle>
+					<Id>1448937936324</Id>
+					<Name><![CDATA[roundRectangle3]]></Name>
+					<X>680</X><Y>780</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>290</Width>
+					<Height>90</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-133658</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<Text>
+					<Id>1448937938740</Id>
+					<Name><![CDATA[text7]]></Name>
+					<X>710</X><Y>790</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Datasets]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>18</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Shapes>
+			<Charts>
+    			<Plot>
+					<Id>1429734423958</Id>
+					<Name><![CDATA[plot]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1429776000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>620</Width>
+					<Height>320</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>110</XOffset>
+						<YOffset>30</YOffset>
+						<Width>480</Width>
+						<Height>230</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<Persistent>true</Persistent>
+					<ShowLegend>true</ShowLegend>
+					<VerScaleFromExpression><![CDATA[400000000]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[600000000]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[population Math]]></Title>
+					<Expression><![CDATA[datasetPopulation]]></Expression>
+					<Color>-8355840</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<SamplesToKeep>71</SamplesToKeep>
+					<HorScaleFromExpression><![CDATA[0]]></HorScaleFromExpression>
+					<HorScaleToExpression><![CDATA[1]]></HorScaleToExpression>
+					<HorScaleType>AUTO</HorScaleType>
+    			</Plot>
+    			<Plot>
+					<Id>1430165536316</Id>
+					<Name><![CDATA[plot1]]></Name>
+					<X>0</X><Y>320</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1429776000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[YEAR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>620</Width>
+					<Height>260</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>110</XOffset>
+						<YOffset>30</YOffset>
+						<Width>480</Width>
+						<Height>170</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<Persistent>true</Persistent>
+					<ShowLegend>true</ShowLegend>
+					<VerScaleFromExpression><![CDATA[400000000]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[600000000]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[alzhaimer]]></Title>
+					<Expression><![CDATA[datasetAlz]]></Expression>
+					<Color>-16776961</Color>
+					<Expression2><![CDATA[0]]></Expression2>
+					<Expression2Flag>false</Expression2Flag>
+						<PointStyle>CIRCLE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+						<HorizontalAxisExpression><![CDATA[0]]></HorizontalAxisExpression>
+					</DatasetExpression>
+					<SamplesToKeep>71</SamplesToKeep>
+					<HorScaleFromExpression><![CDATA[0]]></HorScaleFromExpression>
+					<HorScaleToExpression><![CDATA[1]]></HorScaleToExpression>
+					<HorScaleType>AUTO</HorScaleType>
+    			</Plot>
+			</Charts>
+
+		</ActiveObjectClass>
+	</ActiveObjectClasses>	
+	<DifferentialEquationsMethod>EULER</DifferentialEquationsMethod>
+	<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
+	<AlgebraicEquationsMethod>MODIFIED_NEWTON</AlgebraicEquationsMethod>
+	<AbsoluteAccuracy>1.0E-5</AbsoluteAccuracy>
+	<FixedTimeStep>0.001</FixedTimeStep>
+	<RelativeAccuracy>1.0E-5</RelativeAccuracy>
+	<TimeAccuracy>1.0E-5</TimeAccuracy>
+	<Database>
+		<Logging>false</Logging>
+		<AutoExport>false</AutoExport>
+		<ImportSettings>
+		</ImportSettings>
+		<ExportSettings>
+			<ExportExcelFilePath><![CDATA[]]></ExportExcelFilePath>
+		</ExportSettings>
+	</Database>	
+	<Experiments>	
+		<!--   =========   Simulation Experiment   ========  -->
+		<SimulationExperiment ActiveObjectClassId="1429732178872">
+			<Id>1429732178874</Id>
+			<Name><![CDATA[Simulation]]></Name>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<PresentationTopGroupPersistent>true</PresentationTopGroupPersistent>
+			<IconTopGroupPersistent>true</IconTopGroupPersistent>
+			<Frame>
+				<X>0</X>
+				<Y>0</Y>
+				<Width>1000</Width>
+				<Height>600</Height>
+				<Maximized>false</Maximized>
+				<CloseConfirmation>false</CloseConfirmation>
+			</Frame>
+			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
+			<MaximumMemory>4096</MaximumMemory>
+			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
+			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
+			<SeedValue>1</SeedValue>
+			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
+			<VmArgs><![CDATA[]]></VmArgs>
+			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+			<SnapshotFile></SnapshotFile>
+
+			<Shapes>
+				<Text>
+					<Id>1429732178875</Id>
+					<Name><![CDATA[text]]></Name>
+					<X>40</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AsObject>true</AsObject>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12490271</Color>
+					<Text><![CDATA[Population model of EU 
+Alzheimer´s disease spread 2015 - 2018]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>24</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Shapes>
+			<Controls>
+				<Control Type="Button">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1429732178876</Id>
+					<Name><![CDATA[button]]></Name>
+					<X>40</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<BasicProperties Width="100" Height="30" 
+				AsObject="true">
+                        <EmbeddedIcon>false</EmbeddedIcon>				
+						<FillColor/>
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[if ( getState() == IDLE )
+	run();
+getPresentation().setPresentable( getEngine().getRoot() );]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Run]]></LabelText>
+						<LabelCode><![CDATA[getState() == IDLE ?
+	"Run" :
+	"Top level agent"]]></LabelCode>
+					</ExtendedProperties>
+				</Control>
+			</Controls>
+
+			<Parameters>			
+			</Parameters>			
+			<PresentationProperties 
+				EnableAdaptiveFrameManagement="true" 
+				EnableAntiAliasing="true"
+				EnableEnhancedModelElementsAnimation="true"
+				EnablePanning="true"
+				ToolbarCustomizableAtRuntime="true"
+				EnableZoom="true">
+				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
+				<CpuRatio><![CDATA[ratio_1_2]]></CpuRatio>	        
+				<Title><![CDATA[populace : Simulation]]></Title>	
+				<FramesPerSecond><![CDATA[20.0]]></FramesPerSecond>
+				<RealTimeScale>1.0</RealTimeScale>
+				<UIProperty Name="Experiment Progress" Value="false"/>
+				<UIProperty Name="Simulation Progress" Value="true"/>
+				<UIProperty Name="Statusbar Events Per Second" Value="false"/>
+				<UIProperty Name="Statusbar Frames Per Second" Value="false"/>
+				<UIProperty Name="Statusbar Memory" Value="true"/>
+				<UIProperty Name="Statusbar Model Date" Value="true"/>
+				<UIProperty Name="Statusbar Model Step" Value="false"/>
+				<UIProperty Name="Statusbar Model Time" Value="true"/>
+				<UIProperty Name="Statusbar Real Time Of Simulation" Value="false"/>
+				<UIProperty Name="Statusbar Status" Value="true"/>
+				<UIProperty Name="Toolbar Animation setup" Value="false"/>
+				<UIProperty Name="Toolbar Execution control" Value="true"/>
+				<UIProperty Name="Toolbar File" Value="false"/>
+				<UIProperty Name="Toolbar Model navigation" Value="true"/>
+				<UIProperty Name="Toolbar Time scale setup" Value="true"/>
+				<UIProperty Name="Toolbar View" Value="false"/>
+			</PresentationProperties>
+			<ModelTimeProperties>
+				<StopOption><![CDATA[Stop at specified time]]></StopOption>
+				<InitialDate><![CDATA[1429660800000]]></InitialDate>	
+				<InitialTime><![CDATA[0.0]]></InitialTime>	
+				<FinalDate><![CDATA[3637180800000]]></FinalDate>	
+				<FinalTime><![CDATA[70.0]]></FinalTime>	
+			</ModelTimeProperties>
+		</SimulationExperiment>	
+	</Experiments>
+</Model>
+</AnyLogicWorkspace>
